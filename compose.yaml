@@ -1,0 +1,15 @@
+name: instabot
+services:
+  instabot:
+    build: .
+    image: instabot:local
+    container_name: instabot
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - DATA_DIR=/data
+      - PORT=8097
+    ports:
+      - "8097:8097"
+    volumes:
+      - ./data:/data
